@@ -5,18 +5,16 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no,
     minimum-scale=1.0,maximum-scale=1.0">
     <title>JD-M</title>
-    <!--<link type="text/css" href="CSS/base.css">-->
     <link rel="stylesheet" href="CSS/index.css">
+    <script src="JS/zepto.min.js"></script>
+    <script src="JS/fastclick.min.js"></script>
+    <script src="JS/function.js"></script>
 </head>
 <body>
 <!--构建页面的版心-->
 <!--
 1.最大宽度设置为640px--不至于失真
 2.最小宽度设置为320px-保证最小宽度不会让画面错乱
-
-
-
-
 -->
 <div class="jdm_center">
     <!--顶部搜索窗口-->
@@ -70,10 +68,80 @@
             <li><a href="#"><img src="imges/nav7.png" alt=""><p>分类</p></a></li>
         </ul>
     </div>
+<!--描述区域-->
+    <section class="jdm_ms">
+    <div class="jdm_ms_head">
+        <span class="jdm_ms_icon"></span>
+        <p>掌上描述</p>
+        <div class="jdm_ms_djs">
+            <span>00</span><span>:</span><span>00</span><span>:</span><span>00</span>
+        </div>
+        <div class="jdm_ms_more">
+            <p>更多</p>
+            <span class="iconfont">&#xe631;</span>
+        </div>
+    </div>
+    <div class="jdm_ms_main">
+        <ul class="jdm_ms_main_ul">
+            <li>
+                <a href="#"><img src="imges/detail01.jpg" alt=""></a>
+                <span class="jdm_ms_cx iconfont">&#xe645;100.00</span></br>
+                <span class="jdm_ms_yj iconfont">&#xe645;1000.00</span>
+            </li>
+            <li>
+                <a href="#"><img src="imges/detail02.jpg" alt=""></a>
+                <span class="jdm_ms_cx iconfont">&#xe645;200.00</span></br>
+                <span class="jdm_ms_yj iconfont">&#xe645;2000.00</span>
+            </li>
+            <li>
+                <a href="#"><img src="imges/detail01.jpg" alt=""></a>
+                <span class="jdm_ms_cx iconfont">&#xe645;300.00</span></br>
+                <span class="jdm_ms_yj iconfont">&#xe645;3000.00</span>
+            </li>
+        </ul>
+    </div>
+    </section>
+<!--京东超市区域-->
+    <section class="jdm_cs sec">
+        <div class="jdm_cs_head sec_head">
+            <p >京东超市</p>
+        </div>
+        <div class="jdm_cs_main sec_main">
+            <div class="sec_main_left"><a href="ceshi.html"><img src="imges/cp1.jpg" alt=""></a></div>
+            <div class="sec_main_rtop"><a href="#"><img src="imges/cp2.jpg" alt=""></a></div>
+            <div class="sec_main_rdown"><a href="#"><img src="imges/cp3.jpg" alt=""></a></div>
+        </div>
+    </section>
+<!--京东自营区域-->
+    <section class="jdm_zy sec">
+        <div class="jdm_zy_head sec_head">
+            <p class="">京东自营</p>
+        </div>
+        <div class="jdm_zy_main sec_main">
+            <div class="sec_main_ltop"><a href="#"><img src="imges/cp5.jpg" alt=""></a></div>
+            <div class="sec_main_ldown"><a href="#"><img src="imges/cp6.jpg" alt=""></a></div>
+            <div class="sec_main_right"><a href="#"><img src="imges/cp4.jpg" alt=""></a></div>
+        </div>
+    </section>
+<!--京东热门区域-->
+    <section class="jdm_rm sec">
+        <div class="jdm_cs_head sec_head">
+            <p>京东热门</p>
+        </div>
+        <div class="jdm_cs_main sec_main">
+            <div class="sec_main_left"><a href="#"><img src="imges/cp1.jpg" alt=""></a></div>
+            <div class="sec_main_rtop"><a href="#"><img src="imges/cp2.jpg" alt=""></a></div>
+            <div class="sec_main_rdown"><a href="#"><img src="imges/cp3.jpg" alt=""></a></div>
+        </div>
+    </section>
+
+
+
+
 
 
 </div>
 
-
+<script src="JS/main.js"></script>
 </body>
 </html>

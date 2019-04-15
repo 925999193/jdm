@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initail-scale=1.0,user-scalable=no,maximum-scale=1">
+    <title>Title</title>
+    <style>
+        .f1{
+            width: 300px;
+            height: 300px;
+            border: 1px solid #cccccc;
+            padding: 20px;
+        }
+        .f1::after{
+            display: block;
+            content: '';
+            width: 30px;
+            height: 30px;
+            background-color: #9a6e3a;
+        }
+    </style>
+    <script src="JS/zepto.min.js"></script>
+    <script src="JS/fastclick.min.js"></script>
+</head>
+<body>
+<div class="f1">
+</div>
+<!--<script>-->
+    <!--document.documentElement.addEventListener("DOMContentLoaded",function () {-->
+        <!--FastClick.attach(document.documentElement);-->
+    <!--},false);-->
+<!--</script>-->
+<script>
+   $f2 = $(".f1");
+    console.log($f2);
+    $f2.on("touchmove",function (e) {
+        var x = e.touches[0].clientX;
+        this.innerHTML = x;
+        // this.style.height = 100+"px";
+        // console.log(this);
+    })
+
+
+
+</script>
+<!--<script>-->
+    <!--// var f1 = document.getElementsByClassName("f1")[0];-->
+    <!--// f1.addEventListener("touchstart",function () {-->
+    <!--//     alert("123");-->
+    <!--// });-->
+
+
+
+
+
+
+
+
+    <!--// var f2 = $(".f1")[0];-->
+    <!--// f2.on("click",function () {-->
+    <!--//     alert("12");-->
+    <!--// })-->
+    <!--$(function () {-->
+        <!--var li = $('.f1')[0];-->
+        <!--document.documentElement.addEventListener("DOMContentLoaded",function () {-->
+            <!--FastClick.attach(document.documentElement);-->
+        <!--},false);-->
+
+        <!--var f1 = document.getElementsByClassName("f1")[0];-->
+        <!--f1.addEventListener("touchstart",function () {-->
+            <!--alert("123");-->
+        <!--},false);-->
+
+
+
+
+
+
+
+    <!--});-->
+<!--</script>-->
+</body>
+</html>
