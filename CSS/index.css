@@ -10,10 +10,26 @@
     tap-highlight-color: transparent;
     -webkit-tap-highlight-color: transparent;
 }
+/*引入字体图标*/
+@font-face {
+    font-family: 'iconfont';
+    src: url('../font/iconfont.eot');
+    src: url('../font/iconfont.eot?#iefix') format('embedded-opentype'),
+    url('../font/iconfont.woff2') format('woff2'),
+    url('../font/iconfont.woff') format('woff'),
+    url('../font/iconfont.ttf') format('truetype'),
+    url('../font/iconfont.svg#iconfont') format('svg');
+}
+.iconfont{
+    font-family: 'iconfont' !important;
+    font-size: 16px;
+    font-style: normal;
+}
 body{
     font-size: 14px;
     font-family: "Microsoft YaHei",sans-serif;
     color: #333;
+    background-color: #f4f5f5;
 }
 input,textarea{
     border: none;
@@ -100,6 +116,8 @@ input,textarea{
 }
 .jdm_lbt .jdm_lbt_ul{
     width: 1000%;
+    /*overflow: hidden;*/
+    position: relative;
     transform: translateX(-10%);
 }
 .jdm_lbt .jdm_lbt_ul li{
@@ -116,31 +134,34 @@ input,textarea{
     width: 100%;
 }
 .jdm_lbt .jdm_lbt_d{
-    width: 140px;
+    width: 120px;
     height: 10px;
     position: absolute;
     bottom: 10px;
     left: 50%;
-    margin-left: -70px;
+    transform: translateX(-50%);
 }
 .jdm_lbt .jdm_lbt_d li{
     display: block;
     margin-left: 2px;
     margin-right: 2px;
-    width: 10px;
-    height: 10px;
-    border-radius: 5px;
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+    border: 1px solid #cccccc;
     float: left;
-    background: #333333;
     list-style: none;
+    position: relative;
+    box-shadow: 0px 0px 4px #cccccc;
+    /*background-color: white;*/
 }
 /*导航栏*/
 .jdm_nav{
     width: 100%;
     /*position: relative;*/
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #cccccc;
     overflow: hidden;
-
+    background-color: white;
 }
 .jdm_nav .jdm_nav_ul{
     display: block;
@@ -151,14 +172,14 @@ input,textarea{
 .jdm_nav .jdm_nav_ul li{
     display: block;
     width: 25%;
-    height: 70px;
+    height: 80px;
     float: left;
-    padding: 10px 35px;
+    padding: 10px 15px;
     list-style: none;
 }
 .jdm_nav .jdm_nav_ul li a{
     display: block;
-    text-align: center;
+    width: 100%;
     text-decoration: none;
 }
 .jdm_nav .jdm_nav_ul li img{
@@ -167,6 +188,219 @@ input,textarea{
     display: block;
     margin: 0 auto;
 }
+.jdm_nav .jdm_nav_ul li a p{
+    display: block;
+    width: 100%;
+    text-align: center;
+    color: #b7c7d7;
+}
+/*掌上描述区域*/
+.jdm_ms{
+    width: 95%;
+    height: 200px;
+    box-shadow: 0px 0px 4px #cccccc;
+    margin: 10px auto;
+    background-color: white;
+}
+ .jdm_ms .jdm_ms_head{
+     width: 100%;
+     height: 40px;
+     position: relative;
+}
+.jdm_ms .jdm_ms_head .jdm_ms_icon{
+    display: block;
+    position: absolute;
+    height: 80%;
+    width: 10%;
+    left: 10px;
+    top: 8px;
+    background: url("../imges/seckill-icon.png") no-repeat;
+    background-size: 20px;
+}
+.jdm_ms .jdm_ms_head p{
+    display: block;
+    height: 40px;
+    position: absolute;
+    left: 40px;
+    font-size: 16px;
+    color: red;
+    line-height: 40px;
+}
+.jdm_ms .jdm_ms_head .jdm_ms_djs{
+    height: 40px;
+    width: 60px;
+    position: absolute;
+    left: 120px;
+    line-height: 40px;
+}
+.jdm_ms .jdm_ms_head .jdm_ms_more{
+    width: 66px;
+    height: 40px;
+    position: absolute;
+    right: 0px;
+}
+.jdm_ms .jdm_ms_head .jdm_ms_more p{
+    display: block;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    left: 0px;
+    color: black;
 
+}
+.jdm_ms .jdm_ms_head .jdm_ms_more span{
+    display: block;
+    position: absolute;
+    right: 0px;
+    width: 26px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+}
+ .jdm_ms .jdm_ms_main{
+     width: 100%;
+     height: 160px;
+     overflow: hidden;
+ }
+.jdm_ms .jdm_ms_main_ul{
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.jdm_ms .jdm_ms_main_ul li{
+    display: block;
+    width: 33.3%;
+    height: 150px;
+    float: left;
+    overflow: hidden;
+}
+.jdm_ms .jdm_ms_main_ul li a{
+    display: block;
+    width: 100%;
+    height: 80px;
+    margin: 10px 0px 18px;
+    padding: 0px 16px;
+}
+.jdm_ms .jdm_ms_main_ul li:nth-child(-n+2) a{
+    border-right: 1px solid #cccccc;
 
-
+}
+.jdm_ms .jdm_ms_main_ul li img{
+    display: block;
+    width: 100px;
+    height: 80px;
+}
+.jdm_ms .jdm_ms_main_ul li span{
+    display: inline-block;
+    width: 100%;
+    height: 16px;
+    text-align: center;
+    font-size: 12px;
+}
+.jdm_ms .jdm_ms_main_ul li .jdm_ms_yj{
+    text-decoration: line-through;
+}
+/*京东超市区域*/
+/*section区域*/
+.sec{
+    width: 95%;
+    height: 240px;
+    box-shadow: 0px 0px 4px #cccccc;
+    margin: 10px auto;
+    background-color: white;
+    position: relative;
+}
+.sec .sec_head{
+    position: relative;
+    width: 100%;
+    height: 40px;
+    border-bottom: 1px solid #cccccc;
+}
+.sec .sec_head p{
+    display: inline-block;
+    width: 70px;
+    height: 20px;
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-left: 3px solid red;
+    padding-left: 5px;
+}
+.sec .sec_main{
+    width: 100%;
+    height: 200px;
+    background-color: white;
+    position: relative;
+}
+.sec .sec_main .sec_main_left{
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    border-right: 1px solid #cccccc;
+}
+.sec .sec_main .sec_main_left img{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.sec .sec_main .sec_main_ltop{
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    border-bottom: 1px solid #cccccc;
+}
+.sec .sec_main .sec_main_ltop img{
+    width: 100%;
+    height: 100%;
+}
+.sec .sec_main .sec_main_ldown{
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+}
+.sec .sec_main .sec_main_ldown img{
+    width: 100%;
+    height: 100%;
+}
+.sec .sec_main .sec_main_right{
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+.sec .sec_main .sec_main_right img{
+    width: 100%;
+    height: 100%;
+}
+.sec .sec_main .sec_main_rtop{
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    border-bottom: 1px solid #cccccc;
+}
+.sec .sec_main .sec_main_rtop img{
+    width: 100%;
+    height: 100%;
+}
+.sec .sec_main .sec_main_rdown{
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+}
+.sec .sec_main .sec_main_rdown img{
+    width: 100%;
+    height: 100%;
+}
