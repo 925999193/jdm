@@ -24,7 +24,6 @@ function Sliding() {
     this.ismove = false;
     this.startX = 0;
     this.distence = 0;
-    this.e = 0;
 }
 Sliding.prototype.init = function (dom) {
     var that = this;
@@ -52,15 +51,40 @@ Sliding.prototype.init = function (dom) {
     });
 };
 Sliding.prototype.rightSlide = function (e,dom) {
-    console.log(this);
-    console.log(e);
-    console.log(dom)
     console.log("右滑了")
+    console.log(this.index);
+    if (this.index<=9&&this.index>0){
+        this.index--;
+        var end = 'translateX(-'+this.index*10+'%)';
+        dom.css('transform',end);
+        dom.css('transition','transform,0.4s')
+        console.log(this.index);
+        dom.on('transitionend',function () {
+            if (this.index == 0){
+                dom.css('transition','none');
+                dom.css('transform','translateX(-80%)');
+                this.index = 8;
+            }
+        }.bind(this))
+    }
 };
 Sliding.prototype.leftSlide = function (e,dom) {
-    console.log(this);
-    console.log(e);
-    console.log(dom)
-    console.log("左滑了")
+    console.log('左滑了')
+    console.log(this.index);
+    if (this.index<9){
+        this.index++;
+        var end = 'translateX(-'+this.index*10+'%)';
+        dom.css('transform',end);
+        dom.css('transition','transform,0.4s')
+        dom.on('transitionend',function () {
+            console.log(this.index);
+            if (this.index == 8){
+                dom.off('transitionend');
+                dom.css('transition','none');
+                dom.css('transform','translateX(0%)');
+                this.index = 1;
+            }
+        }.bind(this))
+    }
 };
 
