@@ -39,9 +39,9 @@ Sliding.prototype.init = function (dom) {
         //判断是否移动了
         if (this.ismove && Math.abs(this.distence)>50){
             if (this.distence>0){//说明右滑了
-                that.rightSlide(e,dom) && that.rightSlide(e,dom).call(this)
+                that.rightSlide(dom,timeId) && that.rightSlide(dom,timeId).call(this)
             }else {
-                that.leftSlide(e,dom) && that.leftSlide(e,dom).call(this);
+                that.leftSlide(dom,timeId) && that.leftSlide(dom,timeId).call(this);
             }
         }
         //    重置状态
@@ -49,18 +49,25 @@ Sliding.prototype.init = function (dom) {
         this.startX = 0;
         this.distence = 0;
     });
+    var timeId = setInterval(function () {
+        that.leftSlide(dom);
+    },4000);
 };
-Sliding.prototype.rightSlide = function (e,dom) {
+Sliding.prototype.autolb = function(dom){
+    var that = this;
+};
+Sliding.prototype.rightSlide = function (dom,timeId) {
     console.log("右滑了")
-    console.log(this.index);
+    // clearInterval(timeId)
     if (this.index<=9&&this.index>0){
         this.index--;
         var end = 'translateX(-'+this.index*10+'%)';
         dom.css('transform',end);
-        dom.css('transition','transform,0.4s')
+        dom.css('transition','transform,0.3s')
         console.log(this.index);
         dom.on('transitionend',function () {
             if (this.index == 0){
+                dom.off('transitionend');
                 dom.css('transition','none');
                 dom.css('transform','translateX(-80%)');
                 this.index = 8;
@@ -68,22 +75,22 @@ Sliding.prototype.rightSlide = function (e,dom) {
         }.bind(this))
     }
 };
-Sliding.prototype.leftSlide = function (e,dom) {
+Sliding.prototype.leftSlide = function (dom,timeId) {
     console.log('左滑了')
-    console.log(this.index);
+    // clearInterval(timeId)
     if (this.index<9){
         this.index++;
         var end = 'translateX(-'+this.index*10+'%)';
         dom.css('transform',end);
         dom.css('transition','transform,0.4s')
+        console.log(this.index);
         dom.on('transitionend',function () {
-            console.log(this.index);
-            if (this.index == 8){
+            if (this.index == 9){
                 dom.off('transitionend');
                 dom.css('transition','none');
-                dom.css('transform','translateX(0%)');
+                dom.css('transform','translateX(-10%)');
                 this.index = 1;
-            }
+            };
         }.bind(this))
     }
 };
