@@ -2,82 +2,56 @@
 window.onload = function(){
     //禁止双指放大
     banZoom();
-
     $(function () {
         var li = $('.jdm_lbt')[0];
         document.addEventListener("DOMContentLoaded",function () {
             FastClick.attach(document.body);
         },false);
-//滑动
+//滑动-轮播图模块
         var lbt = $(".jdm_lbt").children(".jdm_lbt_ul");
         // dom对象转换为jq对象
         var $lbt = $(lbt)
         var solding = new Sliding();
+        //初始化轮播图
         solding.init($lbt);
+//倒计时
+        var dateStart = (new Date()).getTime();
+        var dateEnd = (new Date("2019-4-18 20:00:00")).getTime();
+        var datePoor = dateEnd - dateStart;
+        var seconds = 0;
+        var minutes = 0;
+        var hours = 0;
+        alert(datePoor);
+        console.log(hours);
+        console.log(minutes);
+        console.log(seconds);
+        //获取倒计时模块的元素
+        var $djs = $('.jdm_ms_djs');
+        var djsHours = $djs.children().get(0);
+        var djsMinutes = $djs.children().get(2);
+        var djsSeconds = $djs.children().get(4);
+        // var timeId = setInterval(function () {
+        //     datePoor = datePoor - 1000;
+        //     seconds = Math.floor(datePoor/1000)%60;
+        //     minutes = Math.floor(datePoor/1000/60)%60;
+        //     hours = Math.floor(datePoor/1000/60/60);
+        //     if (seconds<10){
+        //         seconds = '0'+ seconds;
+        //     }
+        //     djsHours.innerHTML = hours;
+        //     djsMinutes.innerHTML = minutes;
+        //     djsSeconds.innerHTML = seconds;
+        // },1000)
 
 
 
-        //左滑方法
-        var index = 1;
-        function leftSlide(e) {
-        //  左滑之后会执行这里的代码
-            var dom = $(this);
-        //     需要移动的宽度
-            var widthAll = dom.css('width');
-            var i = 0;
-            var distence = 'translateX(-' + (index*10 + i) + '%)';
-            console.log(distence);
-            dom.css('transform',distence);
-            index++;
-            //  var timeId = setInterval(function () {
-            //      var distence = '-' + (index*10 + i) + '%';
-            //      dom.css('transform',distence);
-            //      i++
-            //      if(i==11){
-            //          clearInterval(timeId);
-            //      }
-            // },100)
 
 
 
-        };
-        //右滑操作
-        function rightSlide(e) {
-            console.log(this);
-            console.log(e);
-            alert("右滑了")
-        };
 
-        function slide(dom) {
-            //    确定状态
-            var ismove = false;
-            var startX = 0;
-            var distence = 0;
-            dom.on('touchstart',function (e) {
-                startX = e.touches[0].clientX;
-            });
-            dom.on("touchmove",function (e) {
-                ismove = true;
-                var ensX = e.touches[0].clientX;
-                distence = ensX - startX;
-            })
-            dom.on("touchend",function (e) {
-                //判断是否移动了
-                if (ismove && Math.abs(distence)>50){
-                    if (distence>0){//说明右滑了
-                        rightSlide && rightSlide.call(this,e)
-                    }else {
-                        leftSlide && leftSlide.call(this,e);
-                    }
-                }
-                //    重置状态
-                ismove = false;
-                startX = 0;
-                distence = 0;
-            });
-        };
-        //调用
-        // slide($lbt);
+
+
+
 
 //tap事件
 //         var tapEvent = function (dom,callback) {

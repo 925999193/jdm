@@ -51,20 +51,29 @@ Sliding.prototype.init = function (dom) {
     });
     var timeId = setInterval(function () {
         that.leftSlide(dom);
-    },4000);
+    },5000000);
+    dom.next().children('li').css('background-color','#ededed');
+    $(dom.next().children('li').get(this.index-1)).css('background-color','black');
 };
 Sliding.prototype.autolb = function(dom){
     var that = this;
 };
 Sliding.prototype.rightSlide = function (dom,timeId) {
     console.log("右滑了")
-    // clearInterval(timeId)
-    if (this.index<=9&&this.index>0){
-        this.index--;
+    console.log(this.index);
+    if (this.index<9&&this.index>0){
+        dom.next().children('li').css('background-color','#ededed');
+        if (this.index == 1){
+            $(dom.next().children('li').get(7)).css('background-color','black');
+            this.index--
+        }else {
+            console.log(123);
+            this.index--;
+            $(dom.next().children('li').get(this.index-1)).css('background-color','black');
+        }
         var end = 'translateX(-'+this.index*10+'%)';
         dom.css('transform',end);
         dom.css('transition','transform,0.3s')
-        console.log(this.index);
         dom.on('transitionend',function () {
             if (this.index == 0){
                 dom.off('transitionend');
@@ -77,13 +86,17 @@ Sliding.prototype.rightSlide = function (dom,timeId) {
 };
 Sliding.prototype.leftSlide = function (dom,timeId) {
     console.log('左滑了')
-    // clearInterval(timeId)
+    var $li = $(dom.next().children('li').get(this.index));
     if (this.index<9){
+        dom.next().children('li').css('background-color','#ededed')
+        if (this.index == 8){
+            $(dom.next().children('li').get(0)).css('background-color','black');
+        }
         this.index++;
+        $li.css('background-color','black');
         var end = 'translateX(-'+this.index*10+'%)';
         dom.css('transform',end);
         dom.css('transition','transform,0.4s')
-        console.log(this.index);
         dom.on('transitionend',function () {
             if (this.index == 9){
                 dom.off('transitionend');
