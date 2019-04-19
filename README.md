@@ -40,3 +40,18 @@ git remote add origin https://github.com/925999193/jdm
 
 git push origin master
 
+
+创建分支并合并
+1.创建分支-并切换到新的分支
+git checkout -b dev (dev表示新的分支名称)
+2.查看当前分支
+git branch 
+3.在新的分支上进行提交
+4.切换回主分支master
+git checkout master
+5.分支合并
+git merge dev
+6.删除分支
+git branch -d dev
+7.查看剩余的分支
+git branch(应该就只有一个分支了)

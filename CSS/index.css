@@ -153,7 +153,7 @@ input,textarea{
     list-style: none;
     position: relative;
     box-shadow: 0px 0px 4px #cccccc;
-    /*background-color: white;*/
+    background-color: #ededed;
 }
 /*导航栏*/
 .jdm_nav{
