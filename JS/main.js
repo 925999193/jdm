@@ -16,12 +16,12 @@ window.onload = function(){
         solding.init($lbt);
 //倒计时
         var dateStart = (new Date()).getTime();
-        var dateEnd = (new Date("2019-4-18 20:00:00")).getTime();
+        var dateEnd = (new Date("2019-4-18 20:00:00"));
         var datePoor = dateEnd - dateStart;
         var seconds = 0;
         var minutes = 0;
         var hours = 0;
-        alert(datePoor);
+        alert(dateEnd);
         console.log(hours);
         console.log(minutes);
         console.log(seconds);
@@ -30,18 +30,18 @@ window.onload = function(){
         var djsHours = $djs.children().get(0);
         var djsMinutes = $djs.children().get(2);
         var djsSeconds = $djs.children().get(4);
-        // var timeId = setInterval(function () {
-        //     datePoor = datePoor - 1000;
-        //     seconds = Math.floor(datePoor/1000)%60;
-        //     minutes = Math.floor(datePoor/1000/60)%60;
-        //     hours = Math.floor(datePoor/1000/60/60);
-        //     if (seconds<10){
-        //         seconds = '0'+ seconds;
-        //     }
-        //     djsHours.innerHTML = hours;
-        //     djsMinutes.innerHTML = minutes;
-        //     djsSeconds.innerHTML = seconds;
-        // },1000)
+        var timeId = setInterval(function () {
+            datePoor = datePoor - 1000;
+            seconds = Math.floor(datePoor/1000)%60;
+            minutes = Math.floor(datePoor/1000/60)%60;
+            hours = Math.floor(datePoor/1000/60/60);
+            if (seconds<10){
+                seconds = '0'+ seconds;
+            }
+            djsHours.innerHTML = hours;
+            djsMinutes.innerHTML = minutes;
+            djsSeconds.innerHTML = seconds;
+        },1000)
 
 
 
